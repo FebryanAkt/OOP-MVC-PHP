@@ -8,7 +8,7 @@
         public function __construct(){
             $url = $this->parseURL();
             // cari direktori controllers (controller)
-            if (file_exists("../app/controllers/" . $url[0] . ".php")) {
+            if ($url && isset($url[0]) && file_exists("../app/controllers/" . $url[0] . ".php")) {// cek $url tidak kosong dan $url[0] ada
                $this->controller = $url[0]; //ganti dengan controller baru
                unset($url[0]);
             }
